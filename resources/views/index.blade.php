@@ -51,7 +51,7 @@
           </div>
           <div class="row justify-content-center">
             <div class="col-md-6">
-              <form method="POST" action="{{ route('story-store-index') }}">
+              <form method="POST" action="{{ route('story-index.store') }}">
                 @csrf
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">Tuliskan Nama Kamu:</label>
@@ -147,18 +147,25 @@
           </div>
           <div class="row justify-content-center">
             <div class="col-md-6">
-              <form>
+                @if ($message = Session::get('success'))
+                <div class="alert alert-success alert-dismissible show fade">
+                    {{ $message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                @endif
+              <form method="POST" action="{{ route('contact-us.store') }}">
+                @csrf
                 <div class="mb-3">
                   <label for="name" class="form-label">Nama</label>
-                  <input type="text" class="form-control" id="name" aria-describedby="name">
+                  <input type="text" class="form-control" name="name" id="name" aria-describedby="name">
                 </div>
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="email" aria-describedby="email">
+                  <input type="email" class="form-control" name="email" id="email" aria-describedby="email">
                 </div>
                 <div class="mb-3">
                   <label for="pesan" class="form-label">Pesan</label>
-                  <textarea class="form-control" id="pesan" rows="3"></textarea>
+                  <textarea class="form-control" name="messages" id="pesan" rows="3"></textarea>
                 </div>
                 <button type="submit" class="btn btn-secondary">Kirim</button>
                 <br><br><br>

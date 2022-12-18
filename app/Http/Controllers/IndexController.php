@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendMail;
 use Illuminate\Http\Request;
 use App\Models\Story;
+use Mail;
 
 class IndexController extends Controller
 {
     public function index()
     {
+        // Mail::to("ruangbernaung@gmail.com")->send(new ContactUsEmail());
         return view('index');
     }
 
@@ -41,5 +44,21 @@ class IndexController extends Controller
             //redirect dengan pesan error
             return redirect()->route('index')->with(['error' => 'Cerita Andas Gagal Disimpan!']);
         }
+    }
+
+    public function contact(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'messages' => 'required'
+        ]);
+        $data = array(
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'messages' => $request->input('messages'),
+        );
+        Mail::to('ruangbernaung@gmail.com')->send(new SendMail($data));
+        return redirect()->route('index')->with(['success' => 'Terima Kasih Telah Menghubungi Kami']);
     }
 }

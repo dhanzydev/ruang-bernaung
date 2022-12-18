@@ -16,7 +16,9 @@ use App\Http\Controllers\IndexController;
 */
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
-Route::post('/', [IndexController::class, 'store'])->name('story-store-index');
+Route::post('/story-store', [IndexController::class, 'store'])->name('story-index.store');
+Route::post('/contact-us', [IndexController::class, 'contact'])->name('contact-us.store');
+
 
 Route::get('/login', function () {
     return view('login');
