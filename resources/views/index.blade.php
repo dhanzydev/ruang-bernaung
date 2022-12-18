@@ -18,9 +18,9 @@
           <div class="card-img-overlay">
             <br> <br> <br> <br> <br> <br> <br>
             <h5 class="card-title mt-5">"BERNAUNG BERSAMAKU"</h5>
-            <p class="card-text">Komunitas yang bergerak dibidang kesehatan mental yang berempati, membangkitkan self-love serta mengapresiasi perbedaan yang ada didalam diri masing-masing orang. 
-              Komunitas ini mengajak seluruh masyarakat terutama para wanita untuk bebas berekspresi tanpa adanya batasan. 
-              Bebas berpendapat dan juga bebas berekspresi akan sebuah hal sangat penting untuk kesehatan masing-masing induvidu. 
+            <p class="card-text">Komunitas yang bergerak dibidang kesehatan mental yang berempati, membangkitkan self-love serta mengapresiasi perbedaan yang ada didalam diri masing-masing orang.
+              Komunitas ini mengajak seluruh masyarakat terutama para wanita untuk bebas berekspresi tanpa adanya batasan.
+              Bebas berpendapat dan juga bebas berekspresi akan sebuah hal sangat penting untuk kesehatan masing-masing induvidu.
             </p>
             <p class="card-text"><small>Mari membersamai para puan!</small></p>
           </div>
@@ -33,24 +33,37 @@
         <div class="container">
           <div class="row text-center mb-3">
             <div class="col">
-              <br> <br> <br> <br> <br> <br> <br> 
+              <br> <br> <br> <br> <br> <br> <br>
               <h2>#ConfessionRoom</h2>
+              @if ($message = Session::get('success'))
+                <div class="alert alert-success alert-dismissible show fade">
+                    {{ $message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                @endif
+                @if ($message = Session::get('error'))
+                <div class="alert alert-danger alert-dismissible show fade">
+                    {{ $message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                @endif
             </div>
           </div>
           <div class="row justify-content-center">
             <div class="col-md-6">
-              <form>
+              <form method="POST" action="{{ route('story-store-index') }}">
+                @csrf
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">Tuliskan Nama Kamu:</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <input type="text" class="form-control" name="name" id="exampleInputEmail1" aria-describedby="emailHelp">
                   <div id="emailHelp" class="form-text">We'll never share your message with anyone else.</div>
                 </div>
                 <div class="mb-3">
                   <label for="exampleInputPassword1" class="form-label">Perbuatan Baik Apa Hari Ini?</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1">
+                  <input type="text" class="form-control" name="story" id="exampleInputPassword1">
                 </div>
                 <div class="mb-3 form-check">
-                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <input type="checkbox" class="form-check-input" name="anonymous" id="exampleCheck1">
                   <label class="form-check-label" for="exampleCheck1">Kirim Secara Anonymous</label>
                 </div>
                 <button type="submit" class="btn btn-secondary">Kirim</button>
@@ -121,7 +134,7 @@
         </div>
       </section>
       <!--Akhir Galery Motivation-->
-      
+
       <!--Contact Us-->
       <section id="contact">
         <div class="container">
