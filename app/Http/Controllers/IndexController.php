@@ -39,7 +39,7 @@ class IndexController extends Controller
 
         if ($post) {
             //redirect dengan pesan sukses
-            return redirect()->route('index')->with(['success' => 'Cerita Anda Disimpan!']);
+            return redirect()->route('index')->with(['berhasil' => 'Cerita Anda Disimpan!']);
         } else {
             //redirect dengan pesan error
             return redirect()->route('index')->with(['error' => 'Cerita Andas Gagal Disimpan!']);

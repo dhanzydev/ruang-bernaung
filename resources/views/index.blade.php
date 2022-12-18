@@ -35,7 +35,7 @@
             <div class="col">
               <br> <br> <br> <br> <br> <br> <br>
               <h2>#ConfessionRoom</h2>
-              @if ($message = Session::get('success'))
+              @if ($message = Session::get('berhasil'))
                 <div class="alert alert-success alert-dismissible show fade">
                     {{ $message }}
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
