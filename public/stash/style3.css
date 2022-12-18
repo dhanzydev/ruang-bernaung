@@ -1,0 +1,45 @@
+@font-face {
+  font-family: Raleway;
+  src: url(Raleway.ttf);
+}
+@font-face {
+  font-family: Fuzzy;
+  src: url(Fuzzy.ttf);
+}
+@font-face {
+  font-family: Quicksand;
+  src: url(Quicksand.ttf);
+}
+@font-face {
+  font-family: Cinzel;
+  src: url(Cinzel.ttf);
+}
+@font-face {
+  font-family: AbrilFatface;
+  src: url(AbrilFatface-Regular.ttf);
+}
+
+#dashboard-body {
+  background-image: url('/img/bg_wall.png');
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.nav-link:hover {
+  background-color: grey;
+}
+
+.global-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2e1c20;
+}
+
+.card {
+  background-color: #ffd1d1 !important;
+}
+
+#card-title {
+  font-family: 'AbrilFatface';
+}
