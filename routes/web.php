@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ShareStoryController;
+
 use App\Http\Controllers\Auth\LogoutController;
 /*
 |--------------------------------------------------------------------------
@@ -25,11 +27,8 @@ Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::post('/save-story', [DashboardController::class, 'store'])->name('story.store');
-});
-
-
-Route::get('/kts', function () {
-    return view('kts');
+    Route::get('/kts', [ShareStoryController::class, 'index'])->name('kts');
+    Route::get('/react/{id}', [ShareStoryController::class, 'react'])->name('react');
 });
 Route::get('/katamereka', function () {
     return view('katamereka');

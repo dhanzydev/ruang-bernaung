@@ -18,4 +18,11 @@ class Story extends Model
     ];
 
     protected $table = 'story';
+
+    public function react($id)
+    {
+        $react = Story::find($id);
+        $react->hug = $react->hug + 1;
+        $react->save();
+    }
 }

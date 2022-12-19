@@ -2,27 +2,30 @@
 
 @section('page-content')
 <center>
-    <br> <br> <br> 
+    <br> <br> <br>
     <h2><b>#KamuTidakSendiri</b></h2>
     <br> <br>
     </center>
     <div class="row">
-        @for ($i = 0; $i <11; $i++)
+        @foreach ($data as $row)
         <div class="col-lg-4 mt-2">
             <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title font-italic">Anonymous</h5>
-                  <p class="card-text">Tunangan aku selingkuh lagi :) entah sampai kapan aku maksa diri buat bertahan. Udah bingung harus ngapain lagi</p>
+                    @if ($row->anonymous == 0)
+                      <h5 class="card-title font-italic">Anonymous</h5>
+                    @else
+                        <h5 class="card-title font-italic">{{ $row->name }}</h5>
+                    @endif
+                  <p class="card-text">{!! $row->story !!}</p>
                   <div class="d-flex justify-content-between align-items-center">
-                    <a href="#" class="btn btn-primary">Beri Pelukan</a>
+                      <a href="{{ route('react', $row->id) }}" class="btn btn-primary" id="react">Beri Pelukan</a>
                     <div class="d-flex align-items-center">
                         <i class="fa-solid fa-heart mx-1"></i>
-                        <div id="ms-2">1</div>
+                        <div id="ms-2">{{ $row->hug }}</div>
                     </div>
                   </div>
-                  
               </div>
             </div>
         </div>
-        @endfor
+        @endforeach
 @endsection
