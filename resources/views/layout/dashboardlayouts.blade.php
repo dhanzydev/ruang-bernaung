@@ -45,7 +45,7 @@
                     <a class="nav-link text-white" href="/ulasan">Beri Ulasan</a> <hr class="bg-secondary">
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-white" href="/"><b>LOGOUT</b></a> <hr class="bg-secondary">
+                    <a class="nav-link text-white" href="{{ route('logout') }}"><b>LOGOUT</b></a> <hr class="bg-secondary">
                   </li>
               </ul>
         </div>

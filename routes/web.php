@@ -29,15 +29,15 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/save-story', [DashboardController::class, 'store'])->name('story.store');
     Route::get('/kts', [ShareStoryController::class, 'index'])->name('kts');
     Route::get('/react/{id}', [ShareStoryController::class, 'react'])->name('react');
-});
-Route::get('/katamereka', function () {
-    return view('katamereka');
-});
-Route::get('/ourteam', function () {
-    return view('ourteam');
-});
-Route::get('/ulasan', function () {
-    return view('ulasan');
+    Route::get('/katamereka', function () {
+        return view('katamereka');
+    });
+    Route::get('/ourteam', function () {
+        return view('ourteam');
+    });
+    Route::get('/ulasan', function () {
+        return view('ulasan');
+    });
 });
 
 Auth::routes();
