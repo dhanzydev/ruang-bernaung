@@ -24,6 +24,7 @@ Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::post('/save-story', [DashboardController::class, 'store'])->name('story.store');
 });
 
 

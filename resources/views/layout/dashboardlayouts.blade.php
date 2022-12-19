@@ -22,15 +22,15 @@
     <!-- Awal Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top d-flex justify-content-between">
       <a class="navbar-brand" href="#">RUANG BERNAUNG</a>
-      <h4 class="">Username</h4>
+      <h4 class="">@yield('username')</h4>
     </nav>
     <!-- Akhir Navbar -->
-    
+
     <div class="row no-gutter mt-5 min-height">
         <div class="col-md-2 bg-light bg-dark mt-2 pr-2 pt-4">
             <ul class="nav flex-column ml-3 mb-5">
                 <li class="nav-item">
-                  <a class="nav-link active text-white" href="/dashboard">Ruang Cerita</a> <hr class="bg-secondary">
+                  <a class="nav-link active text-white" href="{{ route('dashboard') }}">Ruang Cerita</a> <hr class="bg-secondary">
                 </li>
                 <li class="nav-item">
                   <a class="nav-link text-white" href="/kts">#KamuTidakSendiri</a> <hr class="bg-secondary">
@@ -49,7 +49,7 @@
                   </li>
               </ul>
         </div>
-        <div class="col-md-10"> 
+        <div class="col-md-10">
             @yield('page-content')
         </div>
     </div>

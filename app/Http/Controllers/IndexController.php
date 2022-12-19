@@ -42,7 +42,7 @@ class IndexController extends Controller
             return redirect()->route('index')->with(['berhasil' => 'Cerita Anda Disimpan!']);
         } else {
             //redirect dengan pesan error
-            return redirect()->route('index')->with(['error' => 'Cerita Andas Gagal Disimpan!']);
+            return redirect()->route('index')->with(['error' => 'Cerita Anda Gagal Disimpan!']);
         }
     }
 
