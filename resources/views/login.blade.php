@@ -6,7 +6,8 @@
     <img src="img/bg.svg" />
   </div>
   <div class="login-content">
-    <form action="/dashboard" id="form-login">
+    <form action="{{ route('login') }}" method="POST" id="form-login">
+        @csrf
       <img src="img/avatar.svg" />
       <h2 class="title">Welcome</h2>
       <div class="input-div one">
@@ -15,7 +16,7 @@
         </div>
         <div class="div">
           <h5>Username</h5>
-          <input type="text" class="input" />
+          <input type="text" name="username" class="input" />
         </div>
       </div>
       <div class="input-div pass">
@@ -24,15 +25,13 @@
         </div>
         <div class="div">
           <h5>Password</h5>
-          <input type="password" class="input" />
+          <input type="password" name="password" class="input" />
         </div>
       </div>
       <a href="/forgot" class="forgot-link">Forgot Password?</a>
-      <form action="dashboard.html">
-        <input type="submit" value="Login" class="btn btn-custom" />
-      </form>
+      <button class="btn btn-custom" type="submit">Login</button>
     </form>
   </div>
 </div>
-    
+
 @endsection

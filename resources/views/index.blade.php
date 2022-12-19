@@ -6,7 +6,7 @@
         <img src="img/LOGO BERNAUNG.png" alt="Bernaung Bersamaku" width="200" class="rounded-circle img-thumbnail" />
         <h1 class="display-4 mt-4">BERNAUNG BERSAMAKU</h1>
         <p class="lead">Bergeraklah dan bangkitlah, dirimu tidak sendiri! Mari saling membersamai para puan.</p>
-        <a class="btn btn-danger" href="/signup" role="button">Mari Bernaung</a>
+        <a class="btn btn-danger" href="{{ route('register') }}" role="button">Mari Bernaung</a>
         <br><br><br>
       </section>
       <!-- Akhir Jumbotron -->

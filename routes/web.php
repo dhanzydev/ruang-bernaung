@@ -1,9 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\IndexController;
-
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Auth\LogoutController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,15 +20,12 @@ use App\Http\Controllers\IndexController;
 Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::post('/story-store', [IndexController::class, 'store'])->name('story-index.store');
 Route::post('/contact-us', [IndexController::class, 'contact'])->name('contact-us.store');
+Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 
-
-Route::get('/login', function () {
-    return view('login');
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
 
 Route::get('/kts', function () {
     return view('kts');
@@ -40,10 +39,5 @@ Route::get('/ourteam', function () {
 Route::get('/ulasan', function () {
     return view('ulasan');
 });
-Route::get('/signup', function () {
-    return view('signup');
-});
 
-// Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Auth::routes();
