@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ShareStoryController;
+use App\Http\Controllers\UlasanController;
 
 use App\Http\Controllers\Auth\LogoutController;
 /*
@@ -35,9 +36,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/ourteam', function () {
         return view('ourteam');
     });
-    Route::get('/ulasan', function () {
-        return view('ulasan');
-    });
+    Route::get('/ulasan', [UlasanController::class, 'index'])->name('ulasan');
+    Route::post('/save-ulasan', [UlasanController::class, 'store'])->name('ulasan.store');
 });
 
 Auth::routes();
