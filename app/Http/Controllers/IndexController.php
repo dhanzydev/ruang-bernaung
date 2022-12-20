@@ -6,13 +6,15 @@ use App\Mail\SendMail;
 use Illuminate\Http\Request;
 use App\Models\Story;
 use Mail;
+use Illuminate\Support\Facades\Auth;
+
 
 class IndexController extends Controller
 {
     public function index()
     {
-        // Mail::to("ruangbernaung@gmail.com")->send(new ContactUsEmail());
-        return view('index');
+        $username = Auth::user()->username;
+        return view('index', compact('username'));
     }
 
     public function store(Request $request)

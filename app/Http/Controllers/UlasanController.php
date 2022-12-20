@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Ulasan;
+use Illuminate\Support\Facades\Auth;
 
 class UlasanController extends Controller
 {
     public function index()
     {
-        return view('ulasan');
+        $username = Auth::user()->username;
+        return view('ulasan', compact('username'));
     }
 
     public function store(Request $request)
